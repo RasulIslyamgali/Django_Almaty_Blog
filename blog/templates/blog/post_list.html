@@ -5,13 +5,17 @@
     <body>
         <div>
             <h1><a href="">Almaty blog</a></h1>
-            <p>It's a blog about Almaty. Here everyone can write their own history related to Almaty.</p>
+			
+				{{ post }}
+			
+            <h2>It's a blog about Almaty. Here everyone can write their own history related to Almaty.</h2>
         </div>
-
+		{% for post in posts %}
         <div>
-            <p>published date: 17.08.21, 22:20</p>
-            <h2><a href="">My first post</a></h2>
-            <p>This is my test post by tutorial Djang girls. I am taking this tutorial for the second time</p>
+            <p>published: {{ post.published_date }}</p>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
+		{% endfor %}
     </body>
 </html>
